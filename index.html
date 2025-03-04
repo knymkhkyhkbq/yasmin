@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol Genealógico - Animado</title>
+    <style>
+        /* Global Styles */
+        * { 
+            text-align: center; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #9165f6 0%, #cc2d02 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+        }
+        /* Legend Styles */
+        .legend {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        .legend div {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        /* Tree Structure */
+        .tree { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1.5s ease;
+        }
+        .generation { 
+            display: flex; 
+            justify-content: center; 
+            margin: 20px 0; 
+            flex-wrap: wrap; 
+        }
+        .line { 
+            border-left: 2px solid black; 
+            height: 20px; 
+            margin: 0 auto;
+        }
+        /* Person Cards */
+        .person { 
+            border: 2px solid black; 
+            padding: 10px; 
+            margin: 5px; 
+            border-radius: 8px; 
+            color: white; 
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .person:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .details { 
+            font-size: 12px; 
+            color: #f0f0f0; 
+        }
+        /* Resalta nombres y detalles */
+        .person strong {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* Color and Style Classes */
+        .blanco { background-color: #0180aa; }
+        .moreno { background-color: #8b4513; }
+        .negro { background-color: #2f4f4f; }
+        .alto { border: 3px solid gold; }
+        .bajo { border: 3px solid green; }
+        .pelo-rizo { font-style: italic; }
+        .pelo-bueno { text-decoration: underline; }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Árbol Genealógico</h1>
+    <div class="legend">
+        <strong>características:</strong><br>
+        <div class="blanco">Blanco</div>
+        <div class="moreno">Moreno</div>
+        <div class="negro">Negro</div>
+        <br>
+        <div class="alto" style="border: 3px solid gold;">Alto</div>
+        <div class="bajo" style="border: 3px solid green;">Bajo</div>
+        <br>
+        <div class="pelo-rizo">Pelo Rizo</div>
+        <div class="pelo-bueno">Pelo Liso</div>
+    </div>
+    <div class="tree">
+        <div class="generation">
+            <div class="person negro bajo">
+                <strong>(Abuela Paterna) Maria</strong>
+                <br> 
+                <span class="details"><strong>Negra, ojos oscuros, baja, delgada (aa Bb hh)</strong></span>
+            </div>
+            <div class="person blanco alto">
+                <strong>(Abuelo Paterno) reyita</strong>
+                <br> 
+                <span class="details"><strong>Blanco, alto, fuerte, ojos claros (AA bb HH)</strong></span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="generation">
+            <div class="person moreno bajo">
+                <strong>Anyelina (Tia Paterna)</strong>
+                <br> 
+                <span class="details"><strong>Morena, baja, delgada, ojos oscuros (aa Bb hh)</strong></span>
+            </div>
+            <div class="person blanco alto pelo-bueno">
+                <strong>José Vázquez (Padre)</strong>
+                <br> 
+                <span class="details"><strong>Alto, blanco, lleno de materia, pelo bueno (AA Bb hh rr)</strong></span>
+            </div>
+            <div class="person blanco alto">
+                <strong>Yenifer (Tia Paterna)</strong>
+                <br> 
+                <span class="details"><strong>Blanca, alta, fuerte, ojos claros (AA bb HH)</strong></span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="generation">
+            <div class="person blanco bajo">
+                <strong>María germania (Abuela Materna)</strong>
+                <br> 
+                <span class="details"><strong>Blanca, ojos negros, baja, llenita (Aa Bb hh)</strong></span>
+            </div>
+            <div class="person moreno alto">
+                <strong>Félix rosario (Abuelo Materno)</strong>
+                <br> 
+                <span class="details"><strong>Moreno, flaco, alto, ojos negros (aa Bb HH)</strong></span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="generation">
+            <div class="person blanco bajo pelo-rizo">
+                <strong>Mariana (Tía Materna)</strong>
+                <br> 
+                <span class="details"><strong>Blanca, baja, pelo rizo (Aa Bb hh Rr)</strong></span>
+            </div>
+            <div class="person blanco alto pelo-rizo">
+                <strong>Evelin Altagracia  (Madre)</strong>
+                <br> 
+                <span class="details"><strong>Alta, blanca, flaca, pelo rizo (Aa Bb Hh Rr)</strong></span>
+            </div>
+            <div class="person moreno bajo pelo-rizo">
+                <strong>Marivel (Tía Materna)</strong>
+                <br> 
+                <span class="details"><strong>Morenita, baja, pelo rizo (aa Bb hh Rr)</strong></span>
+            </div>
+            
+        </div>
+        <div class="line"></div>
+        <div class="generation">
+            <div class="person moreno alto pelo-rizo">
+                <strong>Jazzlin Vasquez rosario (Hermana Mayor)</strong>
+                <br> 
+                <span class="details"><strong>Morena, pelo rizo, alta, llenita (Aa Bb hh Rr)</strong></span>
+            </div>
+            <div class="person moreno alto pelo-bueno">
+                <strong>Santa Jazmin Vázquez Rosario (YO)</strong>
+                <br> 
+                <span class="details"><strong> blanca, pelo lizo (Aa Bb HH rr)</strong></span>
+            </div>
+            <div class="person blanco alto pelo-rizo">
+                <strong>Juan marco Vazquez rosario (Hermano)</strong>
+                <br> 
+                <span class="details"><strong>Más alto que la madre y la hermana, blanco, pelo rizo (Aa Bb HH Rr)</strong></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
